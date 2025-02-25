@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>548 Foundation Email Signature</title>
+    <style>
+        body { font-family: 'Montserrat', sans-serif; }
+        .container { width: 650px; height: 150px; margin: auto; text-align: center; }
+        input { width: 500px; padding: 8px; margin: 5px; font-family: 'Montserrat', sans-serif; font-size: 14px; }
+        .vertical-line { opacity: 0.5; width: 2px; background: #372B73; height: 125px; }
+        .profile-image-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 90px; 
+            height: 90px;
+        }
+        .profile-image-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: #372B73;
+            border-radius: 50%;
+            z-index: -1;
+        }
+        .profile-image {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body style="background-color: #a25cbe">
+    <div class="container" style="color: #372B73">
+        <h2>548 Foundation Email Signature</h2>
+        <input type="text" id="fullName" placeholder="Full Name">
+        <input type="text" id="jobTitle" placeholder="Job Title">
+        <input type="email" id="email" placeholder="Email">
+        <input type="tel" id="phone" placeholder="Phone Number">
+        <input type="url" id="website" placeholder="Meeting Link">
+        <input type="url" id="profileImage" placeholder="Profile Image URL">
+        <button onclick="generateSignature()">Compose Signature</button>
+
+        <div id="signatureContainer" class="signature" style="padding-top: 20px; padding-bottom: 20px;"></div>
+    </div>
+
+    <script>
+        function limitTextWidth(input, maxWidth) {
+            const context = document.createElement("canvas").getContext("2d");
+            context.font = window.getComputedStyle(input).font;
+
+            let text = input.value;
+            while (context.measureText(text).width > maxWidth && text.length > 0) {
+                text = text.slice(0, -1); // Remove last character if width exceeds limit
+            }
+            input.value = text;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputs = [
+                { id: "fullName", maxWidth: 220 },  // Adjust width based on input box size
+                { id: "jobTitle", maxWidth: 350 },
+                { id: "email", maxWidth: 350 },
+                { id: "phone", maxWidth: 200 },
+                { id: "website", maxWidth: 400 }
+            ];
+
+            inputs.forEach(({ id, maxWidth }) => {
+                const input = document.getElementById(id);
+                input.addEventListener("input", () => limitTextWidth(input, maxWidth));
+            });
+        });
+
+        function generateSignature() {
+            const name = document.getElementById('fullName').value;
+            const title = document.getElementById('jobTitle').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const website = document.getElementById('website').value;
+            const profile = document.getElementById('profileImage').value;
+
+            const companyLogo = 'https://548foundation.org/wp-content/uploads/2025/02/548_Foundation.png';
+            const signatureHTML = `
+                <table style="height: 150px; width: 100%; display: flex; align-items: center;
+                background: url('https://548foundation.org/wp-content/uploads/2025/02/548-foundation-email-signature-bg.png');
+                background-size: auto;
+                background-position: center;
+                z-index: 1">
+                    <tr>
+                      <td><a href="https://548foundation.org/"><img src="${companyLogo}" alt="Company Logo" style="width: 140px; padding: 10px;"></a></td>
+                      <td><div class="vertical-line"></div></td>
+                      <td style="padding: 0px; height: 130px;">
+                        <table style="padding: 0px; padding-left: 20px; padding-right: 10px;">
+                          <tr>
+                            <td colspan="5" style="padding: 0px; text-align: left; color: #372B73;">
+                                <h1 style="height: 34px; margin: 0; font-size: 26px; font-weight: 800;">${name}</h1>
+                                <h2 style="height: 14px; margin: 0; font-size: 13.5px; font-weight: 400;">${title}</h2>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td style="position: relative; max-width: 90px; height: 90px;">
+                                <div style="
+                                    position: absolute;
+                                    bottom: 5px;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    width: 88px;
+                                    height: 42px;
+                                    background-color: #372B73;
+                                    border-bottom-left-radius: 65px;
+                                    border-bottom-right-radius: 65px;
+                                    z-index: 0;">
+                                </div>
+                                <img src="${profile}" alt="Profile" style="width: 70px; height: 70px; border-radius: 50%; z-index: 1; position: relative;">
+                            </td>
+
+                            <td style="align-items: center; padding-left: 20px; max-width: 30px;">
+                                <p style="padding-top: 10px; margin: 0; padding-bottom: 3px; ">
+                                    <img src="https://icons.veryicon.com/png/o/miscellaneous/form-icon/phone-100.png" alt="phone" style="width: 15px; height: 15px;">
+                                </p>
+                                <p style="margin: 0; padding-bottom: 5px; ">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/8056/8056414.png" alt="mail" style="width: 15px; height: 15px;">
+                                </p>
+                                <p style="margin: 0; padding-bottom: 4px; ">
+                                    <img src="https://webstockreview.net/images/may-clipart-calendar-page-9.png" alt="calendar" style="width: 15px; height: 15px;">
+                                </p>
+                            </td>
+                            
+                            <td style="width: 330px; text-align: left; padding-left: 15px; font-size: 11px; font-weight: 500;">
+                                <p style="padding-top: 10px; padding-bottom: 10px; margin: 0;">
+                                    <a href="tel:${phone}" style="text-decoration: none; color: #372B73;">${phone}</a>
+                                </p>
+                                <p style="padding-bottom: 10px; margin: 0;">
+                                    <a href="mailto:${email}" style="text-decoration: none; color: #372B73;">${email}</a>
+                                </p>
+                                <p style="padding-bottom: 10px; margin: 0;">
+                                    <a href="url:${website}" style="text-decoration: none; color: #372B73;">${website}</a>
+                                </p>
+                            </td>
+                          </tr>
+                        </table>
+                    </tr>
+                </table>`;
+
+            document.getElementById('signatureContainer').innerHTML = signatureHTML;
+        }
+    </script>
+</body>
+</html>
