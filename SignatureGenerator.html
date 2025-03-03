@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>548 Foundation Email Signature</title>
     <style>
-        h1 { font-family: 'Montserrat', sans-serif; font-weight: 800;}
-        h2 { font-family: 'Montserrat', sans-serif; font-weight: 400;}
-        p { font-family: 'Montserrat', sans-serif; font-weight: 400;}
+        body { font-family: 'Tahoma', sans-serif; }
         .container { width: 650px; height: 150px; margin: auto; text-align: center; }
         input { width: 500px; padding: 8px; margin: 5px; font-family: 'Montserrat', sans-serif; font-size: 14px; }
         .vertical-line { opacity: 0.5; width: 2px; background: #372B73; height: 125px; }
@@ -88,7 +86,7 @@
             const companyLogo = 'https://548foundation.org/wp-content/uploads/2025/02/548_Foundation.png';
             const signatureHTML = `
                 <table style="height: 150px; width: 100%; display: flex; align-items: center;
-                background: url('https://548foundation.org/wp-content/uploads/2025/02/548-foundation-email-signature-bg.png');
+                background: url('https://548foundation.org/wp-content/uploads/2025/03/548-foundation-email-signature-half9.png');
                 background-size: auto;
                 background-position: center;
                 z-index: 1">
@@ -106,18 +104,6 @@
 
                           <tr>
                             <td style="position: relative; max-width: 90px; height: 90px;">
-                                <div style="
-                                    position: absolute;
-                                    bottom: 5px;
-                                    left: 50%;
-                                    transform: translateX(-50%);
-                                    width: 88px;
-                                    height: 42px;
-                                    background-color: #372B73;
-                                    border-bottom-left-radius: 65px;
-                                    border-bottom-right-radius: 65px;
-                                    z-index: 0;">
-                                </div>
                                 <img src="${profile}" alt="Profile" style="width: 70px; height: 70px; border-radius: 50%; z-index: 1; position: relative;">
                             </td>
 
@@ -125,15 +111,15 @@
                                 <p style="padding-top: 10px; margin: 0; padding-bottom: 3px; ">
                                     <img src="https://icons.veryicon.com/png/o/miscellaneous/form-icon/phone-100.png" alt="phone" style="width: 15px; height: 15px;">
                                 </p>
-                                <p style="margin: 0; padding-bottom: 5px; ">
+                                <p style="margin: 0; padding-bottom: 4px; ">
                                     <img src="https://cdn-icons-png.flaticon.com/512/8056/8056414.png" alt="mail" style="width: 15px; height: 15px;">
                                 </p>
-                                <p style="margin: 0; padding-bottom: 4px; ">
+                                <p style="margin: 0; padding-bottom: 7px; ">
                                     <img src="https://webstockreview.net/images/may-clipart-calendar-page-9.png" alt="calendar" style="width: 15px; height: 15px;">
                                 </p>
                             </td>
                             
-                            <td style="width: 330px; text-align: left; padding-left: 15px; font-size: 11px;">
+                            <td style="width: 330px; text-align: left; padding-left: 15px; font-size: 11px; font-weight: 500;">
                                 <p style="padding-top: 10px; padding-bottom: 10px; margin: 0;">
                                     <a href="tel:${phone}" style="text-decoration: none; color: #372B73;">${phone}</a>
                                 </p>
