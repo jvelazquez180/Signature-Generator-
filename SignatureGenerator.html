@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>548 Foundation Email Signature</title>
     <style>
-        body { font-family: 'Tahoma', sans-serif; }
+        body { font-family: 'arial', sans-serif; border-radius: 5px; border-bottom: #372B73; }
         .container { width: 650px; height: 150px; margin: auto; text-align: center; }
         input { width: 500px; padding: 8px; margin: 5px; font-family: 'Montserrat', sans-serif; font-size: 14px; }
         .vertical-line { opacity: 0.5; width: 2px; background: #372B73; height: 125px; }
@@ -64,9 +64,8 @@
             const inputs = [
                 { id: "fullName", maxWidth: 220 },  // Adjust width based on input box size
                 { id: "jobTitle", maxWidth: 350 },
-                { id: "email", maxWidth: 350 },
+                { id: "email", maxWidth: 300 },
                 { id: "phone", maxWidth: 200 },
-                { id: "website", maxWidth: 400 }
             ];
 
             inputs.forEach(({ id, maxWidth }) => {
@@ -76,17 +75,45 @@
         });
 
         function generateSignature() {
+
             const name = document.getElementById('fullName').value;
             const title = document.getElementById('jobTitle').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const website = document.getElementById('website').value;
             const profile = document.getElementById('profileImage').value;
+            let contantInfo = '';
+
+            if (!name || !title || !profile) {
+                alert("Please enter Full Name, Job Title, and Profile Image URL before generating the signature.");
+                return;
+            }
+
+            if (phone) contantInfo += `<p style="margin: 0; padding-bottom: 8px; align-items: center;">
+                                       <img src="https://icons.veryicon.com/png/o/miscellaneous/form-icon/phone-100.png" alt="phone" style="width: 10px; height: 10px;">
+                                       <a href="tel:${phone}" style="padding-left: 5px; text-decoration: none; color: #372B73;">${phone}</a>
+                                       </p>`;
+
+            if (email) contantInfo += `<p style="margin: 0; padding-bottom: 8px; ">
+                                       <img src="https://cdn-icons-png.flaticon.com/512/8056/8056414.png" alt="mail" style="width: 10px; height: 10px;">
+                                       <a href="mailto:${email}" style="padding-left: 5px; text-decoration: none; color: #372B73;">${email}</a>
+                                       </p>`;
+
+            if (website) contantInfo += `<p style="margin: 0; padding-bottom: 8px; ">
+                                         <img src="https://e7.pngegg.com/pngimages/639/449/png-clipart-computer-icons-website-icon-text-globe.png" alt="calendar" style="width: 10px; height: 10px;">
+                                         <a href="${website}" style="padding-left: 5px; text-decoration: none; color: #372B73;">Book A Meeting With Me!</a>
+                                         </p>`;
+                                         
+            contantInfo += `<p style="margin: 0; padding-bottom: 8px; ">
+                            <img src="https://e7.pngegg.com/pngimages/639/449/png-clipart-computer-icons-website-icon-text-globe.png" alt="foundation" style="width: 10px; height: 10px;">
+                            <a href="https://548foundation.org" style="padding-left: 5px; text-decoration: none; color: #372B73;">548 Foundation Website</a>
+                            </p>`;
 
             const companyLogo = 'https://548foundation.org/wp-content/uploads/2025/02/548_Foundation.png';
+
             const signatureHTML = `
                 <table style="height: 150px; width: 100%; display: flex; align-items: center;
-                background: url('https://548foundation.org/wp-content/uploads/2025/03/548-foundation-email-signature-half9.png');
+                background: url('https://548foundation.org/wp-content/uploads/2025/02/548-foundation-email-signature-bg.png');
                 background-size: auto;
                 background-position: center;
                 z-index: 1">
@@ -94,41 +121,19 @@
                       <td><a href="https://548foundation.org/"><img src="${companyLogo}" alt="Company Logo" style="width: 140px; padding: 10px;"></a></td>
                       <td><div class="vertical-line"></div></td>
                       <td style="padding: 0px; height: 130px;">
-                        <table style="padding: 0px; padding-left: 20px; padding-right: 10px;">
+                        <table style="padding: 0px; padding-left: 20px; padding-right: 20px;">
                           <tr>
                             <td colspan="5" style="padding: 0px; text-align: left; color: #372B73;">
                                 <h1 style="height: 34px; margin: 0; font-size: 26px; font-weight: 800;">${name}</h1>
                                 <h2 style="height: 14px; margin: 0; font-size: 13.5px; font-weight: 400;">${title}</h2>
                             </td>
                           </tr>
-
                           <tr>
                             <td style="position: relative; max-width: 90px; height: 90px;">
-                                <img src="${profile}" alt="Profile" style="width: 70px; height: 70px; border-radius: 50%; z-index: 1; position: relative;">
+                                <img src="${profile}" alt="Profile" style="width: 70px; height: 70px; border-radius: 50%; z-index: 1; position: relative; border: 5px solid #372B73;">
                             </td>
-
-                            <td style="align-items: center; padding-left: 20px; max-width: 30px;">
-                                <p style="padding-top: 10px; margin: 0; padding-bottom: 3px; ">
-                                    <img src="https://icons.veryicon.com/png/o/miscellaneous/form-icon/phone-100.png" alt="phone" style="width: 15px; height: 15px;">
-                                </p>
-                                <p style="margin: 0; padding-bottom: 4px; ">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/8056/8056414.png" alt="mail" style="width: 15px; height: 15px;">
-                                </p>
-                                <p style="margin: 0; padding-bottom: 7px; ">
-                                    <img src="https://webstockreview.net/images/may-clipart-calendar-page-9.png" alt="calendar" style="width: 15px; height: 15px;">
-                                </p>
-                            </td>
-                            
-                            <td style="width: 330px; text-align: left; padding-left: 15px; font-size: 11px; font-weight: 500;">
-                                <p style="padding-top: 10px; padding-bottom: 10px; margin: 0;">
-                                    <a href="tel:${phone}" style="text-decoration: none; color: #372B73;">${phone}</a>
-                                </p>
-                                <p style="padding-bottom: 10px; margin: 0;">
-                                    <a href="mailto:${email}" style="text-decoration: none; color: #372B73;">${email}</a>
-                                </p>
-                                <p style="padding-bottom: 10px; margin: 0;">
-                                    <a href="url:${website}" style="text-decoration: none; color: #372B73;">${website}</a>
-                                </p>
+                            <td align="left" style="padding-left: 20px; max-width: 300px; margin: 0px;  font-size: 11px; font-weight: 500;">
+                                ${contantInfo}
                             </td>
                           </tr>
                         </table>
