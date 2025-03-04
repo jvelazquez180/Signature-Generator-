@@ -84,28 +84,28 @@
             const profile = document.getElementById('profileImage').value;
             let contantInfo = '';
 
-            if (!name || !title || !profile) {
+            if (!name || !title || !profile || !email) {
                 alert("Please enter Full Name, Job Title, and Profile Image URL before generating the signature.");
                 return;
             }
 
             if (phone) contantInfo += `<p style="margin: 0; padding-bottom: 8px; align-items: center;">
-                                       <img src="https://icons.veryicon.com/png/o/miscellaneous/form-icon/phone-100.png" alt="phone" style="width: 10px; height: 10px;">
+                                       <img src="https://548foundation.org/wp-content/uploads/2025/03/phone-icon.png" alt="phone" style="width: 11px; height: 11px;">
                                        <a href="tel:${phone}" style="padding-left: 5px; text-decoration: none; color: #372B73;">${phone}</a>
                                        </p>`;
 
             if (email) contantInfo += `<p style="margin: 0; padding-bottom: 8px; ">
-                                       <img src="https://cdn-icons-png.flaticon.com/512/8056/8056414.png" alt="mail" style="width: 10px; height: 10px;">
+                                       <img src="https://548foundation.org/wp-content/uploads/2025/03/mail-icon.png" alt="mail" style="width: 11px; height: 11px;">
                                        <a href="mailto:${email}" style="padding-left: 5px; text-decoration: none; color: #372B73;">${email}</a>
                                        </p>`;
 
             if (website) contantInfo += `<p style="margin: 0; padding-bottom: 8px; ">
-                                         <img src="https://e7.pngegg.com/pngimages/639/449/png-clipart-computer-icons-website-icon-text-globe.png" alt="calendar" style="width: 10px; height: 10px;">
+                                         <img src="https://548foundation.org/wp-content/uploads/2025/03/calendar-icon.png" alt="calendar" style="width: 11px; height: 11px;">
                                          <a href="${website}" style="padding-left: 5px; text-decoration: none; color: #372B73;">Book A Meeting With Me!</a>
                                          </p>`;
                                          
             contantInfo += `<p style="margin: 0; padding-bottom: 8px; ">
-                            <img src="https://e7.pngegg.com/pngimages/639/449/png-clipart-computer-icons-website-icon-text-globe.png" alt="foundation" style="width: 10px; height: 10px;">
+                            <img src="https://548foundation.org/wp-content/uploads/2025/03/web-icon.png" alt="foundation" style="width: 11px; height: 11px;">
                             <a href="https://548foundation.org" style="padding-left: 5px; text-decoration: none; color: #372B73;">548 Foundation Website</a>
                             </p>`;
 
@@ -132,7 +132,7 @@
                             <td style="position: relative; max-width: 90px; height: 90px;">
                                 <img src="${profile}" alt="Profile" style="width: 70px; height: 70px; border-radius: 50%; z-index: 1; position: relative; border: 5px solid #372B73;">
                             </td>
-                            <td align="left" style="padding-left: 20px; max-width: 300px; margin: 0px;  font-size: 11px; font-weight: 500;">
+                            <td align="left" style="padding-left: 20px; max-width: 300px; margin: 0px;  font-size: 12px; font-weight: 500;">
                                 ${contantInfo}
                             </td>
                           </tr>
